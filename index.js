@@ -203,7 +203,7 @@ client.on("interactionCreate", async (interaction) => {
     if (interaction.isCommand()){
         //await interaction.deferReply();
         if(interaction.commandName==='userinfo'){
-            const text = interaction.options.getUser('member');
+            const text = interaction.options.getString('member');
             client.commands.get('userinfoslash').execute(interaction,client,text);
         }
         if(interaction.commandName==='urban'){
