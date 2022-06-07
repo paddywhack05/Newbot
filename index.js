@@ -177,7 +177,6 @@ const dadjoke={
     const dogslash = await client.application?.commands.create(dog);
     const minecraftslash = await client.application?.commands.create(minecraft);
     const rapslash = await client.application?.commands.create(rap)
-    const ballslash = await client.application?.commands.create(ball)
     const ukrainenewsslash = await client.application?.commands.create(ukrainenews)
     const diceslash = await client.application?.commands.create(dice)
     const hackslash = await client.application?.commands.create(hack)
