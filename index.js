@@ -206,6 +206,10 @@ client.on("interactionCreate", async (interaction) => {
             const text = interaction.options.getUser('member');
             client.commands.get('userinfoslash').execute(interaction,client,text);
         }
+        if(interaction.commandName==='urban'){
+            const text = interaction.options.getUser('search');
+            client.commands.get('ubslash').execute(interaction,client,text);
+        }
          
         if(interaction.commandName==='invite'){
             client.commands.get('inviteslash').execute(interaction,client);
