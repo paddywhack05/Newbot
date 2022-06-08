@@ -331,12 +331,10 @@ client.on("interactionCreate", async (interaction) => {
 })
 
 client.on('guildCreate', async guild => {
-    if(client.guild.permissionsFor(client.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
     console.log(guild.name);
     const channel = guild.channels.cache.find(channel => channel.type === 'GUILD_TEXT' && channel.permissionsFor(guild.me).has('SEND_MESSAGES'))
     const owner = await guild.fetchOwner();
     client.commands.get('join').execute(guild,client,owner,channel);
-    }
 })
 client.on('messageCreate', async message =>{
     if(message.channelId ==='944633349274763277'){
