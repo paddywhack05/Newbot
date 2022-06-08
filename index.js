@@ -353,7 +353,7 @@ client.on('messageCreate', async message =>{
 }
 }
     }
-    if(message.channel.permissionsFor(message.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
+    if(message.channel.permissionsFor(message.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','VIEW_CHANNEL'])) {
 
     if (message.content.toLowerCase() ==="!meme"){
         client.commands.get('meme').execute(message,client);
