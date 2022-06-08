@@ -190,6 +190,7 @@ const dadjoke={
     const inviteslash = await client.application?.commands.create(invite)
     const dadjokeslash = await client.application?.commands.create(dadjoke)
     const ubslash = await client.application?.commands.create(ub)
+    client.user.setActivity(`in ${client.guilds.cache.size} servers !vote`, { type: 'PLAYING'});
     setInterval(function () {
         client.user.setActivity(`in ${client.guilds.cache.size} servers !vote`, { type: 'PLAYING'});
     }, 100000);
