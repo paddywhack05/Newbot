@@ -201,7 +201,7 @@ const dadjoke={
 
 
 client.on("interactionCreate", async (interaction) => {
-    if(interaction.channel.permissionsFor(interaction.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','EMBED_LINKS','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
+    if(interaction.channel.permissionsFor(interaction.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
 
     if (interaction.isCommand()){
         //await interaction.deferReply();
@@ -331,7 +331,7 @@ client.on("interactionCreate", async (interaction) => {
 })
 
 client.on('guildCreate', async guild => {
-    if(interaction.guild.permissionsFor(guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','EMBED_LINKS','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
+    if(interaction.guild.permissionsFor(guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
     console.log(guild.name);
     const channel = guild.channels.cache.find(channel => channel.type === 'GUILD_TEXT' && channel.permissionsFor(guild.me).has('SEND_MESSAGES'))
     const owner = await guild.fetchOwner();
@@ -355,7 +355,7 @@ client.on('messageCreate', async message =>{
 }
 }
     }
-    if(message.channel.permissionsFor(message.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','EMBED_LINKS','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
+    if(message.channel.permissionsFor(message.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
 
     if (message.content.toLowerCase() ==="!meme"){
         client.commands.get('meme').execute(message,client);
