@@ -30,7 +30,7 @@ module.exports= {
                     .addField(`**Nickname: ${Member.nickname}**`)
                     .addField(`**User id: ${Target.id}**`,false)
                     .addField(`**Role color: ${Member.displayHexColor}`)*/
-                    .addField(`Roles[0]`,`No roles lol dont think \@everyone counts`)
+                    .addField(`Roles[0]`,`No roles lol`)
                     .setFooter(`paddycrack.com`)
                     message.channel.send({ embeds: [embed]});
                 }
