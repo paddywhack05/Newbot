@@ -200,6 +200,8 @@ const dadjoke={
 
 
 client.on("interactionCreate", async (interaction) => {
+    if(interaction.channel.permissionsFor(interaction.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','EMBED_LINKS','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
+
     if (interaction.isCommand()){
         //await interaction.deferReply();
         if(interaction.commandName==='userinfo'){
@@ -324,12 +326,16 @@ client.on("interactionCreate", async (interaction) => {
             client.commands.get('ukraineslash').execute(interaction,client);
         }
     }
+}
 })
+
 client.on('guildCreate', async guild => {
+    if(interaction.guild.permissionsFor(guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','EMBED_LINKS','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
     console.log(guild.name);
     const channel = guild.channels.cache.find(channel => channel.type === 'GUILD_TEXT' && channel.permissionsFor(guild.me).has('SEND_MESSAGES'))
     const owner = await guild.fetchOwner();
     client.commands.get('join').execute(guild,client,owner,channel);
+    }
 })
 client.on('messageCreate', async message =>{
     if(message.channelId ==='944633349274763277'){
@@ -348,6 +354,7 @@ client.on('messageCreate', async message =>{
 }
 }
     }
+    if(message.channel.permissionsFor(message.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','EMBED_LINKS','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
 
     if (message.content.toLowerCase() ==="!meme"){
         client.commands.get('meme').execute(message,client);
@@ -454,7 +461,7 @@ client.commands.get('command').execute(message,client);
         if(message.author.id === client.user.id){return;}
         console.log('Dm recieved!')
      }
-
+    }
 });
 
 
