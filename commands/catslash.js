@@ -52,7 +52,7 @@ execute(interaction,client){
                try{
             await interaction.channel.send({ embeds: [embed], components: [row]});
                }catch(err){
-                interaction.reply({ embeds: [embed], components: [row]});
+                await interaction.user.send({content:"I cant send it in the channel because I don have proper permissions but", embeds:[embed], components:[row]})
                }
            }
            else{
