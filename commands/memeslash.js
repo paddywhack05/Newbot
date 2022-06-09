@@ -54,22 +54,16 @@ async execute(interaction,client){
             )
 //upvotes divided by upvote ratio = kinda of down votes
             //await interaction.reply({ content:`next meme`,component: [row]})
-            if(post.fallback_url){
-                if(interaction.isButton()||interaction.isSelectMenu()){
-                    await interaction.channel.send({ embeds: [embed],content:`\n ${post.fallback_url}`, components: [row]});
-                   }
-                   else{
-                   await interaction.reply({ embeds: [embed],content:`\n ${post.fallback_url}`, components: [row]});
-                   }
-            console.log(`dwn ${post.downs} \n ups${post.upvote_ratio} \n real downs ${anser}`)
-        }
+         
+            if(interaction.isButton()||interaction.isSelectMenu()){
+                try{
+             await interaction.channel.send({ embeds: [embed], components: [row]});
+                }catch(err){
+                 await interaction.user.send({content:"I cant send it in the channel because I don have proper permissions but", embeds:[embed], components:[row]})
+                }
+            }
             else{
-                if(interaction.isButton()||interaction.isSelectMenu()){
-                    await interaction.channel.send({ embeds: [embed], components: [row]});
-                   }
-                   else{
-                   await interaction.reply({ embeds: [embed], components: [row]});
-                   }
+            await interaction.reply({ embeds: [embed], components: [row]});
             }
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
            

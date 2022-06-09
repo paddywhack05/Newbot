@@ -28,7 +28,7 @@ module.exports= {
                     .setURL(`https://discordbotlist.com/bots/paddycrackbot/upvote`)
                     .setStyle("LINK"),
                 )
-                interaction.channel.send({ embeds: [embed],components:[row]});
+                interaction.reply({ embeds: [embed],components:[row]});
             
     }
 }

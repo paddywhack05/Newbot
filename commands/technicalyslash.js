@@ -49,11 +49,15 @@ execute(interaction){
         )
            //await interaction.reply({ content:`next meme`,component: [row]})
            if(interaction.isButton()||interaction.isSelectMenu()){
-            await interaction.channel.send({ embeds: [embed], components: [row]});
-           }
-           else{
-           await interaction.reply({ embeds: [embed], components: [row]});
-           }
+            try{
+         await interaction.channel.send({ embeds: [embed], components: [row]});
+            }catch(err){
+             await interaction.user.send({content:"I cant send it in the channel because I don have proper permissions but", embeds:[embed], components:[row]})
+            }
+        }
+        else{
+        await interaction.reply({ embeds: [embed], components: [row]});
+        }
             //message.channel.send(`here is a meme ${message.author} ${post.title} ${post.url}`);
         }else {
             fetch();

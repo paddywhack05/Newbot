@@ -17,7 +17,7 @@ module.exports = {
       const url1 = dices[dice1 - 1];
       const url2 = dices[dice2 - 1];
   
-      await interaction.channel.send({ content: `${url1}\n${url2}` });
-      interaction.channel.send({content: `You got ${ans}` });
+      await interaction.reply({ content: `${url1}\n${url2}` });
+      interaction.followUp({content: `You got ${ans}` });
     },
   };
