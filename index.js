@@ -18,6 +18,7 @@ const technicaly = require('./commands/technicaly');
 const userinfo = require('./commands/userinfo');
 const vote = require('./commands/vote');
 const invite = require('./commands/invite');
+const console = require('console');
 
 
 //const meme = require('./commands/meme');
@@ -201,8 +202,7 @@ const dadjoke={
 
 
 client.on("interactionCreate", async (interaction) => {
-    if(interaction.channel.permissionsFor(interaction.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','USE_APPLICATION_COMMANDS','VIEW_CHANNEL'])) {
-
+try{
     if (interaction.isCommand()){
         //await interaction.deferReply();
         if(interaction.commandName==='userinfo'){
@@ -328,15 +328,24 @@ client.on("interactionCreate", async (interaction) => {
         }
     }
 }
+catch(err){
+console.log("err");
+}
 })
 
 client.on('guildCreate', async guild => {
+    try{
     console.log(guild.name);
     const channel = guild.channels.cache.find(channel => channel.type === 'GUILD_TEXT' && channel.permissionsFor(guild.me).has('SEND_MESSAGES'))
     const owner = await guild.fetchOwner();
     client.commands.get('join').execute(guild,client,owner,channel);
+    }
+    catch(err){
+        console.log('error')
+    }
 })
 client.on('messageCreate', async message =>{
+    try{
     if(message.channelId ==='944633349274763277'){
         var e = message.content;
         var r = e.replace('<@','').replace('>','');
@@ -353,6 +362,7 @@ client.on('messageCreate', async message =>{
 }
 }
     }
+
     if(message.channel.permissionsFor(message.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','VIEW_CHANNEL'])) {
 
     if (message.content.toLowerCase() ==="!meme"){
@@ -461,6 +471,9 @@ client.commands.get('command').execute(message,client);
         console.log('Dm recieved!')
      }
     }
+}catch(err){
+    console.log("error msg")
+}
 });
 
 
