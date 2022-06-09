@@ -49,7 +49,11 @@ execute(interaction,client){
             .setStyle("LINK"),
         )
            if(interaction.isButton()||interaction.isSelectMenu()){
+               try{
             await interaction.channel.send({ embeds: [embed], components: [row]});
+               }catch(err){
+                interaction.reply({ embeds: [embed], components: [row]});
+               }
            }
            else{
            await interaction.reply({ embeds: [embed], components: [row]});
