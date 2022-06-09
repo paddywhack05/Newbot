@@ -17,7 +17,7 @@ module.exports = {
       const url1 = dices[dice1 - 1];
       const url2 = dices[dice2 - 1];
   
-      await interaction.reply({ content: `${url1}\n${url2}` });
+      await interaction.reply({ content: `${url1}\n\n${url2}` });
       interaction.followUp({content: `You got ${ans}` });
     },
   };
