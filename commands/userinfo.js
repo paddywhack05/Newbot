@@ -15,6 +15,13 @@ module.exports= {
             async function e(){
                 const Target = message.mentions.users.first()||message.author;
                 const Member = message.guild.members.cache.get(Target.id);
+                const e = moment(Date.now()).diff(Target.createdAt)/8.64e+7;
+            const daysin = Math.round(e);
+            const r = moment(Date.now()).diff(Member.joinedAt)/8.64e+7;
+            const memsin = Math.round(r);
+            console.log(daysin);
+            console.log(memsin);
+
                 const rol = Member.roles.cache.map(r=>r).length - 1;
                 if(rol === 0){
                     const embed = new Discord.MessageEmbed()
@@ -24,7 +31,7 @@ module.exports= {
                     .setImage(`${Target.displayAvatarURL({ dynamic: true })}`)
                     .setThumbnail(`${Target.displayAvatarURL({ dynamic: true })}`)
                     .setURL(``)
-                    .setDescription(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}\n**Been a member for:** ${moment(Member.joinedAt).startOf('day').fromNow()}\n **Joined discord at** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}\n**Joined Discord:** ${moment(Member.user.createdAt).startOf('day').fromNow()}\n**Nickname: ${Member.nickname}**\n**User id: ${Target.id}**\n**Role color: ${Member.displayHexColor}**\n`)
+                    .setDescription(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}\n **Been a member for:** ${memsin} days\n **Joined discord ** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}\n**Discord user for:** ${daysin} days\n**Nickname: ${Member.nickname}**\n**User id: ${Target.id}**\n**Role color: ${Member.displayHexColor}**\n`)
                     /*.addField(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}`)
                     /*.addField(`**Joined discord at** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}`)
                     .addField(`**Nickname: ${Member.nickname}**`)
@@ -42,7 +49,7 @@ module.exports= {
                 .setImage(`${Target.displayAvatarURL({ dynamic: true })}`)
                 .setThumbnail(`${Target.displayAvatarURL({ dynamic: true })}`)
                 .setURL(``)
-                .setDescription(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}\n **Been a member for:** ${moment(Member.joinedAt).startOf('day').fromNow()}\n **Joined discord at** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}\n**Joined Discord:** ${moment(Member.user.createdAt).startOf('day').fromNow()}\n**Nickname: ${Member.nickname}**\n**User id: ${Target.id}**\n**Role color: ${Member.displayHexColor}**\n`)
+                .setDescription(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}\n **Been a member for:** ${memsin} days\n **Joined discord ** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}\n**Discord user for:** ${daysin} days\n**Nickname: ${Member.nickname}**\n**User id: ${Target.id}**\n**Role color: ${Member.displayHexColor}**\n`)
                 /*.addField(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}`)
                 /*.addField(`**Joined discord at** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}`)
                 .addField(`**Nickname: ${Member.nickname}**`)

@@ -29,7 +29,7 @@ module.exports= {
                 .setImage(`${Target.displayAvatarURL({ dynamic: true })}`)
                 .setThumbnail(`${Target.displayAvatarURL({ dynamic: true })}`)
                 .setURL(``)
-                .setDescription(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}\n**Been a member for:** ${memsin}\n **Joined discord ** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}\n**Discord user for:** ${daysin} days\n**Nickname: ${Member.nickname}**\n**User id: ${Target.id}**\n**Role color: ${Member.displayHexColor}**\n`)
+                .setDescription(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}\n**Been a member for:** ${memsin} days\n **Joined discord ** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}\n**Discord user for:** ${daysin} days\n**Nickname: ${Member.nickname}**\n**User id: ${Target.id}**\n**Role color: ${Member.displayHexColor}**\n`)
                 /*.addField(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}`)
                 /*.addField(`**Joined discord at** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}`)
                 .addField(`**Nickname: ${Member.nickname}**`)
@@ -47,7 +47,7 @@ module.exports= {
             .setImage(`${Target.displayAvatarURL({ dynamic: true })}`)
             .setThumbnail(`${Target.displayAvatarURL({ dynamic: true })}`)
             .setURL(``)
-            .setDescription(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}\n **Been a member for:** ${memsin}\n **Joined discord ** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}\n**Discord user for:** ${daysin} days\n**Nickname: ${Member.nickname}**\n**User id: ${Target.id}**\n**Role color: ${Member.displayHexColor}**\n`)
+            .setDescription(`**${Target.username} joined ${Member.guild} at** ${moment(Member.joinedAt).format('YYYY/MM/DD, h:mm:ss')}\n **Been a member for:** ${memsin} days\n **Joined discord ** ${moment(Target.createdAt).format('YYYY/MM/DD, h:mm:ss')}\n**Discord user for:** ${daysin} days\n**Nickname: ${Member.nickname}**\n**User id: ${Target.id}**\n**Role color: ${Member.displayHexColor}**\n`)
             .addField(`Roles[${rol}]`,`${Member.roles.cache.map(r=>r).join(' ').replace("@everyone",'.')}`)
             .setFooter(`paddycrack.com`)
            
