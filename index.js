@@ -292,7 +292,7 @@ try{
         if(interaction.customId==="meme"){
            //interaction.reply({content: 'loading meme...', ephemeral: false}).then(interaction.deleteReply())
             client.commands.get('memeslash').execute(interaction,client);
-
+            
         }
         if(interaction.customId==="technicaly"){
             //interaction.reply({content: 'loading meme...', ephemeral: false}).then(interaction.deleteReply())
