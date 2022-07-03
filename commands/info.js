@@ -12,7 +12,7 @@ module.exports= {
                 .setAuthor(`${client.user.tag}`, client.user.displayAvatarURL({ dynamic: true }))
                 .setTitle(`${client.user.username} information`)
                 .setURL(``)
-                .setDescription(`**Bot id: ${client.user.id}**\n **Serving in ${client.guilds.cache.size} servers** \n **Latency is ${Date.now() - message.createdTimestamp}ms**\n**[Bot Github](https://github.com/paddywhack05/botthing)**`)
+                .setDescription(`**Bot id: ${client.user.id}**\n **Serving in ${client.guilds.cache.size} servers** \n **Latency is ${Date.now() - message.createdTimestamp}ms**\n**[Bot Github](https://github.com/paddywhack05/Newbot)**`)
                 .setImage(`${client.user.displayAvatarURL({ dynamic: true })}`)
                 .setThumbnail(`${client.user.displayAvatarURL({ dynamic: true })}`)
                 .setFooter(`paddycrack.com`)
