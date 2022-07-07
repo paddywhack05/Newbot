@@ -7,6 +7,7 @@ module.exports= {
     async execute(interaction,client,text){
         const url = `https://pokeapi.co/api/v2/pokemon/${text}`;
                 const res = await fetch(`${url}`)
+                if(res.status===200){
                 const data = await res.json();
        if(!data){interaction.reply("that is not a pokemon see if you misspelled it"); return;}
        console.log(data)
@@ -40,7 +41,9 @@ module.exports= {
                 )
                 .setFooter(`Using pokeapi.co`)
               interaction.reply({ embeds: [embed]});
-            
+                }
+        }else{
+            interaction.reply("that is not a pokemon see if you misspelled it"); return;
         }
     }
 }
