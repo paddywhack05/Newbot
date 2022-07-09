@@ -6,9 +6,12 @@ module.exports= {
     description:"pokemon slash command",
     async execute(interaction,client,text){
         const url = `https://pokeapi.co/api/v2/pokemon/${text}`;
+
                 const res = await fetch(`${url}`)
+                console.log(res);
                 if(res.status===200){
-                const data = await res.json();
+                const data = await res.json()
+                
        if(!data){interaction.reply("that is not a pokemon see if you misspelled it"); return;}
        console.log(data)
             e();
@@ -23,12 +26,17 @@ module.exports= {
                 embed.addField(`⚖ Weight`,`${data.weight}`,true)
                 embed.addField(`📏 Height`,`${data.weight}`,true)
                 let e=''
+                let a=0;
                 data.types.forEach(types => {
                     console.log(types);
-                    e += ' '+types.type.name;
+                    e += ' '+types.type.name.charAt(0).toUpperCase() + types.type.name.slice(1);
                 });
+                data.moves.forEach(move=>{
+                    a++;
+                })
                 console.log(e);
-                embed.addField(`🧾 Types`,`${e}`,true)
+                embed.addField(`🧾 Types`,`${e.trimStart().replace(' ',', ')}`,true)
+                embed.addField(`Summary `,`${data.name.charAt(0).toUpperCase() + data.name.slice(1)} is a ${e.trimStart().replace(' ',' and ')} type pokemon with ${a} moves that they can learn and ${data.base_experience} base exp`)
                 embed.addFields(
                     //	{ name: '\u200B', value: '\u200B' },
                     {name:`${data.stats[0].stat.name.charAt(0).toUpperCase() + data.stats[0].stat.name.slice(1)}`,value:`${data.stats[0].base_stat}`,inline:true},
@@ -42,8 +50,8 @@ module.exports= {
                 .setFooter(`Using pokeapi.co`)
               interaction.reply({ embeds: [embed]});
                 }
-        }else{
-            interaction.reply("that is not a pokemon see if you misspelled it"); return;
-        }
+            }else{interaction.reply("that is not a pokemon see if you misspelled it"); return;}
+                
+            
     }
 }
