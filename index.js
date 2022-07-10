@@ -179,6 +179,17 @@ const dadjoke={
         },
         ],
     };
+    const github = {
+        name: 'github',
+        description: 'github user info',
+        options:[{
+            name:'user',
+            type: 'STRING',
+            description:'search for user info on github',
+            required:'true',
+        },
+        ],
+    };
     const command = await client.application?.commands.create(data);
     const memeslash = await client.application?.commands.create(meme);
     const dankmemeslash = await client.application?.commands.create(dankmeme);
@@ -203,6 +214,7 @@ const dadjoke={
     const dadjokeslash = await client.application?.commands.create(dadjoke)
     const ubslash = await client.application?.commands.create(ub)
     const pokemonslash = await client.application?.commands.create(pokemon)
+    const githubslash = await client.application?.commands.create(github)
     client.user.setActivity(`in ${client.guilds.cache.size} servers !vote`, { type: 'PLAYING'});
     setInterval(function () {
         client.user.setActivity(`in ${client.guilds.cache.size} servers !vote`, { type: 'PLAYING'});
@@ -229,6 +241,11 @@ try{
             const text = interaction.options.getString('pokemon').toLowerCase();
             client.commands.get('pokemonslash').execute(interaction,client,text);
         }
+        if(interaction.commandName==='github'){
+            const text = interaction.options.getString('user').toLowerCase();
+            client.commands.get('githubslash').execute(interaction,client,text);
+        }
+         
         if(interaction.commandName==='invite'){
             client.commands.get('inviteslash').execute(interaction,client);
         }
