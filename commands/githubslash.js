@@ -61,7 +61,7 @@ module.exports= {
                 
               interaction.reply({ embeds: [embed]});
                 }
-            }else{interaction.reply("that is not a pokemon see if you misspelled it"); return;}
+            }else{interaction.reply("that is not a github user see if you misspelled the name"); return;}
                 
             
     }
