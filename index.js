@@ -208,6 +208,7 @@ const covid={
     const diceslash = await client.application?.commands.create(dice)
     const hackslash = await client.application?.commands.create(hack)
     const helpslash = await client.application?.commands.create(help)
+    const ballslash = await client.application?.commands.create(ball)
     const redditslash = await client.application?.commands.create(reddit)
     const technicalyslash = await client.application?.commands.create(technicaly)
     const pingslash = await client.application?.commands.create(ping)
@@ -257,10 +258,9 @@ try{
         if(interaction.commandName==='invite'){
             client.commands.get('inviteslash').execute(interaction,client);
         }
-        if (interaction.commandName ==='ball'){
+        if (interaction.commandName ==='8ball'){
             const text = interaction.options.getString('question');
-            interaction.reply({content: `asking the oracle about ${text}...`, ephemeral: false}).then(interaction.deleteReply())
-            client.commands.get('ballslash').execute(interaction,client,text);
+            client.commands.get('8ballslash').execute(interaction,client,text);
         }
         if(interaction.commandName==='info'){
             client.commands.get('infoslash').execute(interaction,client);
