@@ -21,6 +21,9 @@ const invite = require('./commands/invite');
 const console = require('console');
 
 
+process.on('uncaughtException', function (err) {
+    console.log('Caught exception: ', err,err.stack);
+  });
 //const meme = require('./commands/meme');
 const client = new Discord.Client({ partials: ["CHANNEL"], intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS","GUILD_MESSAGE_TYPING","DIRECT_MESSAGES","DIRECT_MESSAGE_TYPING","DIRECT_MESSAGE_REACTIONS"] }); 
 client.commands = new Discord.Collection();

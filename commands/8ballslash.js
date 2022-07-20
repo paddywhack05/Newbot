@@ -26,5 +26,6 @@ module.exports= {
         .setFooter(`paddycrack.com`)
 
         interaction.reply({embeds: [embed]})
+        interaction.reply({embeds: [embed]})
     }
 }
