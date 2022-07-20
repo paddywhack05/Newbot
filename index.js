@@ -125,6 +125,10 @@ const dadjoke={
     name: 'dadjoke',
     description:'gives you a dad joke',
 }
+const covid={
+    name: 'covid-info',
+    description:'gives you covid stats worldwide',
+}
     const data = {
         name: 'echo',
         description: 'echo thing',
@@ -215,6 +219,7 @@ const dadjoke={
     const ubslash = await client.application?.commands.create(ub)
     const pokemonslash = await client.application?.commands.create(pokemon)
     const githubslash = await client.application?.commands.create(github)
+    const covidslash = await client.application?.commands.create(covid)
     client.user.setActivity(`in ${client.guilds.cache.size} servers !vote`, { type: 'PLAYING'});
     setInterval(function () {
         client.user.setActivity(`in ${client.guilds.cache.size} servers !vote`, { type: 'PLAYING'});
@@ -232,6 +237,9 @@ try{
         if(interaction.commandName==='userinfo'){
             const text = interaction.options.getUser('member');
             client.commands.get('userinfoslash').execute(interaction,client,text);
+        }
+        if(interaction.commandName==='covid-info'){
+            client.commands.get('covidslash').execute(interaction,client);
         }
         if(interaction.commandName==='urban'){
             const text = interaction.options.getString('search');
@@ -403,6 +411,9 @@ client.on('messageCreate', async message =>{
     }
     if(message.content.toLowerCase()==='!dadjoke'){
         client.commands.get('dadjoke').execute(message,client);
+    }
+    if(message.content.toLowerCase()==='!covid'||message.content.toLowerCase()==='!covid-info'){
+        client.commands.get('covid').execute(message,client);
     }
     if (message.content.toLowerCase().startsWith("!userinfo")){
         client.commands.get('userinfo').execute(message,client);
