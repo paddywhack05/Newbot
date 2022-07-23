@@ -25,7 +25,7 @@ const console = require('console');
     console.log('Caught exception: ', err,err.stack);
   });*/
 //const meme = require('./commands/meme');
-const client = new Discord.Client({ partials: ["CHANNEL"], intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS","GUILD_MESSAGE_TYPING","DIRECT_MESSAGES","DIRECT_MESSAGE_TYPING","DIRECT_MESSAGE_REACTIONS"] }); 
+const client = new Discord.Client({ partials: ["CHANNEL","MESSAGE"], intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS","GUILD_MESSAGE_TYPING","DIRECT_MESSAGES","DIRECT_MESSAGE_TYPING","DIRECT_MESSAGE_REACTIONS"] }); 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles){
@@ -406,7 +406,7 @@ client.on('messageCreate', async message =>{
 }
     }
 
-    if(message.channel.permissionsFor(message.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','VIEW_CHANNEL'])) {
+    if(!message.guild||message.channel.permissionsFor(message.guild.me).has(['SEND_MESSAGES','READ_MESSAGE_HISTORY','VIEW_CHANNEL'])) {
 
     if (message.content.toLowerCase() ==="!meme"){
         client.commands.get('meme').execute(message,client);
